@@ -64,10 +64,10 @@ func NewIndex(id uint64, path string, opt tsdb.EngineOptions) *Index {
 		series:       make(map[string]*tsdb.Series),
 	}
 
-	index.seriesSketch = hll.MustNewPlus(16)
-	index.seriesTSSketch = hll.MustNewPlus(16)
-	index.measurementsSketch = hll.MustNewPlus(16)
-	index.measurementsTSSketch = hll.MustNewPlus(16)
+	index.seriesSketch = hll.MustNewPlus(hll.DefaultPrecision)
+	index.seriesTSSketch = hll.MustNewPlus(hll.DefaultPrecision)
+	index.measurementsSketch = hll.MustNewPlus(hll.DefaultPrecision)
+	index.measurementsTSSketch = hll.MustNewPlus(hll.DefaultPrecision)
 
 	return index
 }
