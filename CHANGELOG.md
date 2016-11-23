@@ -10,6 +10,7 @@
 - [#7356](https://github.com/influxdata/influxdb/issues/7356): Use X-Forwarded-For IP address in HTTP logger if present.
 - [#7601](https://github.com/influxdata/influxdb/issues/7601): Prune data in meta store for deleted shards.
 - [#7669](https://github.com/influxdata/influxdb/issues/7669): Uncomment section headers from the default configuration file.
+- [#4619](https://github.com/influxdata/influxdb/issues/4619): Support subquery execution in the query language.
 
 ### Bugfixes
 
