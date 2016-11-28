@@ -140,6 +140,29 @@ func (p *IndexFiles) writeSeriesBlockTo(w io.Writer, info *indexCompactInfo, n *
 		}
 	}
 
+	// Generate merged sketches to write out.
+	sketch, err := hll.NewPlus(hll.DefaultPrecision)
+	if err != nil {
+		return err
+	}
+
+	tsketch, err := hll.NewPlus(hll.DefaultPrecision)
+	if err != nil {
+		return err
+	}
+
+	// merge all the sketches in the index files together.
+	for _, idx := range *p {
+		if err := sketch.Merge(idx.mblk.sketch); err != nil {
+			return err
+		}
+		if err := tsketch.Merge(idx.mblk.tsketch); err != nil {
+			return err
+		}
+	}
+
+	// Set the merged sketches on the measurement block writer.
+	sw.sketch, sw.tsketch = sketch, tsketch
 	// Flush series list.
 	nn, err := sw.WriteTo(w)
 	*n += nn
