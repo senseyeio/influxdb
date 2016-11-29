@@ -306,10 +306,6 @@ func (e *Engine) MeasurementFields(measurement string) *tsdb.MeasurementFields {
 	return e.fieldset.CreateFieldsIfNotExists(measurement)
 }
 
-func (e *Engine) SeriesN() (uint64, error) {
-	return e.index.SeriesN()
-}
-
 func (e *Engine) SeriesSketches() (estimator.Sketch, estimator.Sketch, error) {
 	return e.index.SeriesSketches()
 }
