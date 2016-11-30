@@ -17,6 +17,7 @@
 - [#7616](https://github.com/influxdata/influxdb/pull/7616): Fix chuid argument order in init script @ccasey
 - [#7656](https://github.com/influxdata/influxdb/issues/7656): Fix cross-platform backup/restore
 - [#7650](https://github.com/influxdata/influxdb/issues/7650): Ensures that all user privileges associated with a database are removed when the database is dropped.
+- [#7563](https://github.com/influxdata/influxdb/issues/7563): RP should not allow `INF` or `0` as a shard duration.
 
 ## v1.1.1 [unreleased]
 
